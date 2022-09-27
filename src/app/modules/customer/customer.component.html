@@ -1,0 +1,50 @@
+<!-- Add primeng toaster on top left -->
+<p-toast position="top-right"></p-toast>
+
+<!-- add header Customer with center alignment inside row-->
+<div class="row">
+    <div class="col text-center">
+        <h1>Customer Onboarding</h1>
+    </div>
+</div>
+
+<div>
+    <!-- add div with class card and no child node -->
+    <div class="card">
+        <!-- add form with formGroup customerForm and ngSubmit onSubmit() with no child node -->
+        <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+            <!-- add p for  name , email , lei, swiftBic, cici , dtcc and avox -->
+            <p>
+                <label for="name">Name</label>
+                <input type="text" id="customerName" formControlName="customerName">
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input type="text" id="customerEmail" formControlName="customerEmail">
+            </p>
+            <p>
+                <label for="lei">LEI</label>
+                <input type="text" id="lei" formControlName="lei">
+            </p>
+            <p>
+                <label for="swiftBic">Swift BIC</label>
+                <input type="text" id="swiftBic" formControlName="swiftBic">
+            </p>
+            <p>
+                <label for="cici">CICI</label>
+                <input type="text" id="cici" formControlName="cici">
+            </p>
+            <p>
+                <label for="dtcc">DTCC</label>
+                <input type="text" id="dtcc" formControlName="dtcc">
+            </p>
+            <p>
+                <label for="avox">Avox</label>
+                <input type="text" id="avox" formControlName="avox">
+            </p>
+
+            <!-- add button with type submit -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<!-- add mat nav list  -->
+
+<mat-nav-list>
+
+
+    <div class="profile-card">
+        <div class="header">
+            <h2>Trade Information Warehouse</h2>
+        </div>
+        <img src="assets/images/profile.jpg" alt="DTCC" />
+    </div>
+
+    <mat-divider></mat-divider>
+   
+    <!-- add base path router link to Customer -->
+    <a mat-list-item routerLink="/" routerLinkActive="list-item-active">Customer
+    </a>
+    <!-- add a link with routerlink for trades  -->
+    <a mat-list-item routerLink="/trades" routerLinkActive="list-item-active">Trades
+    </a>
+    <!-- add a ref link with routerlink for reports -->
+    <a mat-list-item routerLink="/reports" routerLinkActive="list-item-active">Reports
+    </a>
+    <!-- add a ref link with routerlink for reports -->
+    <a mat-list-item routerLink="/positionReports" routerLinkActive="list-item-active">Position Reports
+    </a>
+
+
+    
+    <mat-divider></mat-divider>
+</mat-nav-list>

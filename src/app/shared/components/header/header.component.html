@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Trade Warehouse</span>
+
+
+        <!-- add div with fx layout and fx layout as flex end and no child node -->
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+
+            <!-- Add unordered list with flex layout as row and flexlayout gap with 20 px and no child node -->
+            <ul fxLayout="row" fxLayoutGap="20px">
+                
+                <li>
+                     <!-- add angular material button with material settings icon -->
+                    <button mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+                <li>
+                     <!-- add angular material button with material help outline icon -->
+                    <button mat-icon-button>
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+                <li>
+
+                    
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+
+
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            <span>Signout</span>
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

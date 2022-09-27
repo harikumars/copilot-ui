@@ -1,0 +1,56 @@
+<!-- Add primeng toaster on top left -->
+<p-toast position="top-right"></p-toast>
+
+
+<!-- add header Trade Submission with center alignment inside row-->
+<div class="row">
+    <div class="col text-center">
+        <h1>Trade Submission</h1>
+    </div>
+</div>
+
+
+<div>
+    <!-- add div with class card -->
+    <div class="card">
+        <!-- add form with formGroup tradeForm and ngSubmit onSubmit() -->
+        <form [formGroup]="tradeForm" (ngSubmit)="onSubmit()">
+            <!-- add p for tradeId, transactionType, buyer, seller, amount, currency and tradeDate-->
+            <p>
+                <label for="tradeId">Trade Id</label>
+                <input type="text" id="tradeId" formControlName="tradeId">
+            </p>
+            <p>
+                <!-- select option transactionTypes with ngValue as value -->
+                <label for="transactionType">Transaction Type</label>
+                <select id="transactionType" formControlName="transaction">
+                    <option *ngFor="let transactionType of transactionTypes" [ngValue]="transactionType.value">
+                        {{transactionType.label}}
+                    </option>
+                </select>
+            </p>
+            <p>
+                <label for="buyer">Buyer</label>
+                <input type="text" id="buyer" formControlName="buyer">
+            </p>
+            <p>
+                <label for="seller">Seller</label>
+                <input type="text" id="seller" formControlName="seller">
+            </p>
+            <p>
+                <label for="amount">Amount</label>
+                <input type="text" id="amount" formControlName="amount">
+            </p>
+            <p>
+                <label for="currency">Currency</label>
+                <input type="text" id="currency" formControlName="currency">
+            </p>
+            <p>
+                <label for="tradeDate">Trade Date</label>
+                <input type="text" id="tradeDate" formControlName="tradeDate">
+            </p>
+            <!-- add button with type submit -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>

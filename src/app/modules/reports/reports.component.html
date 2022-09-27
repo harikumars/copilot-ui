@@ -1,0 +1,64 @@
+<!-- Add primeng toaster on top left -->
+<p-toast position="top-right"></p-toast>
+
+<!-- add header Trade Submission with center alignment inside row-->
+<div class="row">
+    <div class="col text-center">
+        <h1>Position Reports</h1>
+    </div>
+</div>
+
+<!-- Add div input text with Fetch button -->
+<div>
+    <div class="card">
+        <!-- add input text with NgModel -->
+
+        <input type="text" [(ngModel)]="tradeId" placeholder="Enter Trade Id">
+        <!-- add button and call methos onClick -->
+        <button (click)="getPositionTrades()">Fetch</button>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<!-- ngIf by showPostionTrade with no child node -->
+
+    <div>
+
+        <!-- pring trades as json -->
+        <pre>{{trades | json}}</pre>
+        
+        <!-- primeng data table for Trade with TradeId, TransactionType, Buyer, Seller, Amount, Trade Date, Currency , 
+        Status -->
+        <p-table [value]="trades" [paginator]="true" [rows]="10" [responsive]="true" [pageLinks]="5"
+            [rowsPerPageOptions]="[5,10,20]" [style]="{width: '100%'}" >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="tradeId">TradeId</th>
+                    <th pSortableColumn="transaction">TransactionType</th>
+                    <th pSortableColumn="buyer">Buyer</th>
+                    <th pSortableColumn="seller">Seller</th>
+                    <th pSortableColumn="amount">Amount</th>
+                    <th pSortableColumn="tradeDate">TradeDate</th>
+                    <th pSortableColumn="currency">Currency</th>
+                    <th pSortableColumn="status">Status</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-trade>
+                <tr>
+                    <td>{{trade.tradeId}}</td>
+                    <td>{{trade.transaction}}</td>
+                    <td>{{trade.buyer}}</td>
+                    <td>{{trade.seller}}</td>
+                    <td>{{trade.amount}}</td>
+                    <td>{{trade.tradeDate}}</td>
+                    <td>{{trade.currency}}</td>
+                    <td>{{trade.status}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
