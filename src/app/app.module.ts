@@ -41,13 +41,15 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { DemoComponent } from './modules/demo/demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     TradesComponent,
-    ReportsComponent
+    ReportsComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,

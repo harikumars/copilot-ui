@@ -14,6 +14,8 @@ export class ReportsComponent implements OnInit {
   trades: Trade[] = [];
   tradeId: any;
   showPositionTrade: boolean = false;
+  loading:boolean= false;
+
 
 
   //create constructor with service reports and primeng message service
@@ -23,13 +25,42 @@ export class ReportsComponent implements OnInit {
   getPositionTrades() {
     this.reportsService.getPositionTrades(this.tradeId).subscribe((data: Trade[]) => {
       this.trades = data;
-      alert('');
-      this.showPositionTrade = true;
+      this.trades = [...this.trades];
     }, (error) => {
       this.showPositionTrade = false;
+      this.loading = true;
       this.messageService.add({ severity: 'error', summary: 'Error', detail: error.error.message });
     });
   }
+
+  //get getPositionsTrades from reports service and call with promise then show success message in primeng toast
+  getPositionsTrades() {
+    this.reportsService.getPositionsTrades(this.tradeId).then((data: Trade[]) => {
+      // const datas: Trade[] = [];
+     
+      // const trade: Trade = {
+      //   tradeId: data.tradeId,
+      //   transaction: data.transaction,
+      //   counterPartyId: data.counterPartyId,
+      //   bookId: data.bookId,
+      //   maturityDate: data.maturityDate,
+      //   createdDate: data.createdDate,
+      //   expired: data.expired
+      // };
+
+
+
+
+
+      this.trades = data;
+      //this.trades = [...this.trades];
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Trades Fetched Successfully' });
+    });
+  }
+
+
+
+
 
   ngOnInit(): void {
   }

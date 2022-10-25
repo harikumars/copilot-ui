@@ -10,7 +10,7 @@ export class DashboardService {
 
 //create getTrades method with Observable of http get
 getTrades() : Observable<any> {
-  return this.http.get('http://localhost:8080/trades/getAll');
+  return this.http.get('http://localhost:8080/trades/positionReport');
 }
 
 //create constructor wit hhttp client

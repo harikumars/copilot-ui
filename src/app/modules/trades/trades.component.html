@@ -1,3 +1,34 @@
+<style>
+    th,td {
+        padding: 5px
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        margin: 3px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
 <!-- Add primeng toaster on top left -->
 <p-toast position="top-right"></p-toast>
 
@@ -5,7 +36,7 @@
 <!-- add header Trade Submission with center alignment inside row-->
 <div class="row">
     <div class="col text-center">
-        <h1>Trade Submission</h1>
+        <p align="center"><font size="8">Trade Submission</font></p>
     </div>
 </div>
 
@@ -16,41 +47,64 @@
         <!-- add form with formGroup tradeForm and ngSubmit onSubmit() -->
         <form [formGroup]="tradeForm" (ngSubmit)="onSubmit()">
             <!-- add p for tradeId, transactionType, buyer, seller, amount, currency and tradeDate-->
-            <p>
-                <label for="tradeId">Trade Id</label>
-                <input type="text" id="tradeId" formControlName="tradeId">
-            </p>
-            <p>
+            <font size="5">
+            <table align="center">
+<tr>      
+          <td align="right"> 
+                <label for="tradeId">Trade Id</label></td><td>
+                <input type="text" id="tradeId" formControlName="tradeId"></td>
+            
+        </tr>
+        <tr>
+            <td align="right">
                 <!-- select option transactionTypes with ngValue as value -->
-                <label for="transactionType">Transaction Type</label>
+                <label for="transactionType">Transaction Type</label></td><td>
                 <select id="transactionType" formControlName="transaction">
                     <option *ngFor="let transactionType of transactionTypes" [ngValue]="transactionType.value">
                         {{transactionType.label}}
                     </option>
-                </select>
-            </p>
-            <p>
-                <label for="buyer">Buyer</label>
+                </select></td>
+            
+        </tr>
+        <tr>
+            <td align="right">
+                <label for="buyer">Buyer</label></td><td>
                 <input type="text" id="buyer" formControlName="buyer">
-            </p>
-            <p>
-                <label for="seller">Seller</label>
+            </td>
+            
+        </tr>
+        <tr>
+            
+                <td align="right">
+                <label for="seller">Seller</label></td><td>
                 <input type="text" id="seller" formControlName="seller">
-            </p>
-            <p>
-                <label for="amount">Amount</label>
+            </td>
+            
+        </tr>
+        <tr>
+            <td align="right">
+                <label for="amount">Amount</label></td><td>
                 <input type="text" id="amount" formControlName="amount">
-            </p>
-            <p>
-                <label for="currency">Currency</label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <label for="currency">Currency</label></td><td>
                 <input type="text" id="currency" formControlName="currency">
-            </p>
-            <p>
-                <label for="tradeDate">Trade Date</label>
-                <input type="text" id="tradeDate" formControlName="tradeDate">
-            </p>
+            </td>
+        </tr>
+        <tr>
+            
+            <td align="right">
+                <label for="tradeDate">Trade Date</label> </td><td>
+                <input type="text" id="tradeDate" formControlName="tradeDate"></td>
+            
+            </tr>
+        </table>
+    </font>
+        <br/>
             <!-- add button with type submit -->
-            <button type="submit">Submit</button>
+            <button type="submit" size="8px">Submit</button>
         </form>
     </div>
 </div>

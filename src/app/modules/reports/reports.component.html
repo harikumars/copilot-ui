@@ -4,7 +4,7 @@
 <!-- add header Trade Submission with center alignment inside row-->
 <div class="row">
     <div class="col text-center">
-        <h1>Position Reports</h1>
+        <h1>Submission Reports</h1>
     </div>
 </div>
 
@@ -12,53 +12,67 @@
 <div>
     <div class="card">
         <!-- add input text with NgModel -->
-
-        <input type="text" [(ngModel)]="tradeId" placeholder="Enter Trade Id">
+        <input type="text" [(ngModel)]="tradeId" placeholder="Enter Trade Id"> <br/><br/>
         <!-- add button and call methos onClick -->
-        <button (click)="getPositionTrades()">Fetch</button>
-        
-        
+        <button (click)="getPositionsTrades()">Fetch</button>
+
     </div>
 </div>
-
-
-
-
+<br/><br/>
 
 <!-- ngIf by showPostionTrade with no child node -->
 
-    <div>
+<div>
 
-        <!-- pring trades as json -->
-        <pre>{{trades | json}}</pre>
+    <!-- primeng data table for Trade with TradeId, Buyer, Seller, Amount, Currency -->
+
+    <p-table [value]="trades" [paginator]="true" [rows]="10" [responsive]="true" [pageLinks]="5"
+        [rowsPerPageOptions]="[5,10,20]" [style]="{width: '100%'}" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="tradeId">Trade-Id</th>
+                <th pSortableColumn="transaction">TransactionType</th>
+                <th pSortableColumn="buyer">Buyer</th>
+                <th pSortableColumn="seller">Seller</th>
+                <th pSortableColumn="tradeDate">TradeDate</th>
+                <th pSortableColumn="amount">Amount</th>
+                <th pSortableColumn="currency">Currency</th>
+                <th pSortableColumn="status">Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-trade>
+            <tr>
+                <td>{{trade.tradeId}}</td>
+                <td>{{trade.transaction}}</td>
+                <td>{{trade.buyer}}</td>
+                <td>{{trade.seller}}</td>
+                <td>{{trade.tradeDate}}</td>
+                <td>{{trade.amount}}</td>
+                <td>{{trade.currency}}</td>
+                <td>{{trade.status}}</td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<!-- create a form with submit button  -->
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <!-- create formgroup with styles -->
+        <div class="form-group" [ngClass]="{'has-error': submitted && f.tradeId.errors}">
+            <!-- create label for TradeId -->
+            <label for="tradeId">TradeId</label>
+            <!-- create input text with formcontrolname -->
+            <input type="text" class="form-control" formControlName="tradeId" placeholder="Enter TradeId" />
+            <!-- show error message if form is submitted and tradeId is empty -->
+            <div *ngIf="submitted && f.tradeId.errors" class="help-block">TradeId is required</div>
+        </div>
         
-        <!-- primeng data table for Trade with TradeId, TransactionType, Buyer, Seller, Amount, Trade Date, Currency , 
-        Status -->
-        <p-table [value]="trades" [paginator]="true" [rows]="10" [responsive]="true" [pageLinks]="5"
-            [rowsPerPageOptions]="[5,10,20]" [style]="{width: '100%'}" >
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="tradeId">TradeId</th>
-                    <th pSortableColumn="transaction">TransactionType</th>
-                    <th pSortableColumn="buyer">Buyer</th>
-                    <th pSortableColumn="seller">Seller</th>
-                    <th pSortableColumn="amount">Amount</th>
-                    <th pSortableColumn="tradeDate">TradeDate</th>
-                    <th pSortableColumn="currency">Currency</th>
-                    <th pSortableColumn="status">Status</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-trade>
-                <tr>
-                    <td>{{trade.tradeId}}</td>
-                    <td>{{trade.transaction}}</td>
-                    <td>{{trade.buyer}}</td>
-                    <td>{{trade.seller}}</td>
-                    <td>{{trade.amount}}</td>
-                    <td>{{trade.tradeDate}}</td>
-                    <td>{{trade.currency}}</td>
-                    <td>{{trade.status}}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+
+
+
+        <button type="submit">Submit</button>
+    </form>
+</div>

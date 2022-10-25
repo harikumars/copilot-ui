@@ -1,10 +1,42 @@
+<style>
+    th,td {
+        padding: 5px
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        margin: 3px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    input {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
+
 <!-- Add primeng toaster on top left -->
 <p-toast position="top-right"></p-toast>
 
 <!-- add header Customer with center alignment inside row-->
 <div class="row">
     <div class="col text-center">
-        <h1>Customer Onboarding</h1>
+        <p align="center"><font size="8">Customer Onboarding</font>
     </div>
 </div>
 
@@ -13,35 +45,56 @@
     <div class="card">
         <!-- add form with formGroup customerForm and ngSubmit onSubmit() with no child node -->
         <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+            <font size="5">
+                <table align="center">
+    <tr>      
+              <td align="right"> 
             <!-- add p for  name , email , lei, swiftBic, cici , dtcc and avox -->
-            <p>
-                <label for="name">Name</label>
+                <label for="name">Name</label></td><td>
                 <input type="text" id="customerName" formControlName="customerName">
-            </p>
-            <p>
-                <label for="email">Email</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="email">Email</label></td><td>
                 <input type="text" id="customerEmail" formControlName="customerEmail">
-            </p>
-            <p>
-                <label for="lei">LEI</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="lei">LEI</label></td><td>
                 <input type="text" id="lei" formControlName="lei">
-            </p>
-            <p>
-                <label for="swiftBic">Swift BIC</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="swiftBic">Swift BIC</label></td><td>
                 <input type="text" id="swiftBic" formControlName="swiftBic">
-            </p>
-            <p>
-                <label for="cici">CICI</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="cici">CICI</label></td><td>
                 <input type="text" id="cici" formControlName="cici">
-            </p>
-            <p>
-                <label for="dtcc">DTCC</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="dtcc">DTCC</label></td><td>
                 <input type="text" id="dtcc" formControlName="dtcc">
-            </p>
-            <p>
-                <label for="avox">Avox</label>
+            </td>
+            
+        </tr>
+        <tr>
+                <td align="right"> 
+                <label for="avox">Avox</label></td><td>
                 <input type="text" id="avox" formControlName="avox">
-            </p>
+            </td>   </tr>  </table> </font>
 
             <!-- add button with type submit -->
             <button type="submit">Submit</button>
